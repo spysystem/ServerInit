@@ -18,6 +18,9 @@ EOF
 
 curl -u "spysystem-user" -X POST -d "${DATA}" https://api.github.com/user/keys
 
+echo "-> Add github to known hosts"
+su spydev -c "ssh-keyscan -H github.com >> ~/.ssh/known_hosts"
+
 echo "-> Clone spy-install"
 su spydev -c "git clone git@github.com:spysystem/ServerInstallScript.git"
 
