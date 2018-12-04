@@ -16,6 +16,7 @@ DATA=$(< <(cat <<EOF
 EOF
 ))
 
+echo "-> Login to github"
 curl -u "spysystem-user" -X POST -d "${DATA}" https://api.github.com/user/keys
 
 echo "-> Add github to known hosts"
