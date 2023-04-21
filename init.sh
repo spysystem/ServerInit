@@ -25,12 +25,12 @@ echo "-> Add github to known hosts"
 su spydev -c "ssh-keyscan -H github.com >> ~/.ssh/known_hosts"
 
 echo "-> Provide branch"
-echo "-> Leave empty for master branch"
+echo "-> Leave empty for mysql57 branch"
 read BRANCH
 
 if [ -z "${BRANCH}" ]; then
-  echo "-> Cloning default spy-install"
-  su spydev -c "git clone git@github.com:spysystem/ServerInstallScript.git"
+  echo "-> Cloning mysql57 spy-install"
+  su spydev -c "git clone --branch mysql57 git@github.com:spysystem/ServerInstallScript.git"
 else
   echo "-> Cloning spy-install branch: ${BRANCH}"
   su spydev -c "git clone --branch ${BRANCH} git@github.com:spysystem/ServerInstallScript.git"
